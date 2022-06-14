@@ -42,7 +42,7 @@ in {
         # Internal hack, please ignore
         mkDerivation = { ... }: {
           # Condition filter here
-          imports = lib.concatMap (o: o.attributes) (lib.attrValues (globalConfig.overrides.mkDerivation.${name} or {}));
+          imports = map (o: o.attributes) (lib.attrValues (globalConfig.overrides.mkDerivation.${name} or {}));
         };
       };
     }));
